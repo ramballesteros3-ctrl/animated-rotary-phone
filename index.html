@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramiro Ballesteros · FinTech Product Leader</title>
+  <meta name="description" content="Ramiro Ballesteros is a Lead Product Owner with 10+ years building automation, payments, and underwriting platforms in FinTech and InsurTech." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* HERO */
+    .hero {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(29,158,117,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 6rem 2rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal-300);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--teal-300);
+    }
+    .hero-sub {
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      max-width: 480px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* HEADSHOT PLACEHOLDER */
+    .hero-photo {
+      width: 220px;
+      height: 270px;
+      border-radius: var(--radius-lg);
+      background: var(--charcoal-soft);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.25);
+      font-size: 13px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-photo svg { opacity: 0.3; }
+    .hero-photo-label {
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--teal-300);
+      opacity: 0.7;
+    }
+    .hero-photo-dashed {
+      position: absolute;
+      inset: 8px;
+      border: 1.5px dashed rgba(255,255,255,0.1);
+      border-radius: 10px;
+      pointer-events: none;
+    }
+
+    /* STATS STRIP */
+    .stats-strip {
+      background: var(--teal-800);
+      color: var(--white);
+    }
+    .stats-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      letter-spacing: -1px;
+      color: var(--teal-100);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .stat-divider {
+      border-left: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-body {
+      font-size: 15px;
+      color: var(--charcoal-mid);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .about-body p + p { margin-top: 1rem; }
+    .about-highlights { display: flex; flex-direction: column; gap: 12px; }
+    .highlight-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.25rem;
+      border-left: 3px solid var(--teal-500);
+    }
+    .highlight-card-title { font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+    .highlight-card-body { font-size: 13px; color: var(--charcoal-mid); font-weight: 300; }
+
+    /* EXPERIENCE */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    .exp-item:first-child { padding-top: 0; }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-company { font-size: 13px; font-weight: 500; color: var(--charcoal); }
+    .exp-employer { font-size: 12px; color: var(--teal-700); font-weight: 400; margin-top: 2px; }
+    .exp-date { font-size: 12px; color: var(--gray-muted); margin-top: 4px; }
+    .exp-role { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+    .exp-desc { font-size: 14px; color: var(--charcoal-mid); line-height: 1.7; font-weight: 300; margin-bottom: 12px; }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .skill-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+    .skill-card-icon {
+      width: 36px; height: 36px;
+      background: var(--teal-50);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+    }
+    .skill-card-icon svg { color: var(--teal-700); }
+    .skill-card-title { font-size: 14px; font-weight: 500; margin-bottom: 10px; }
+    .skill-items { font-size: 13px; color: var(--charcoal-mid); line-height: 1.9; font-weight: 300; }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: var(--charcoal);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .cta-banner .section-title { color: var(--white); margin-bottom: 1rem; }
+    .cta-banner p { color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 2rem; font-size: 15px; }
+    .cta-banner-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 700px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { display: none; }
+      .hero-headline { font-size: 36px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Ramiro Ballesteros</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow fade-up">Lead Product Owner · FinTech · New York, NY</div>
+      <h1 class="hero-headline fade-up delay-1">Building products that <em>automate</em> the complex.</h1>
+      <p class="hero-sub fade-up delay-2">10+ years leading cross-functional teams to ship underwriting automation, payments infrastructure, and AI-powered workflows — at scale, in regulated industries.</p>
+      <div class="hero-ctas fade-up delay-3">
+        <a href="case-studies.html" class="btn-primary">View case studies</a>
+        <a href="ramiro_ballesteros_resume.pdf" class="btn-secondary" style="color:rgba(255,255,255,0.8); border-color:rgba(255,255,255,0.2);">Download résumé</a>
+      </div>
+    </div>
+    <div class="hero-photo fade-up delay-4">
+      <div class="hero-photo-dashed"></div>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      <span class="hero-photo-label">Photo coming soon</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div>
+      <span class="stat-num">10+</span>
+      <span class="stat-label">Years product leadership</span>
+    </div>
+    <div class="stat-divider">
+      <span class="stat-num">70%</span>
+      <span class="stat-label">Onboarding time reduction</span>
+    </div>
+    <div class="stat-divider">
+      <span class="stat-num">60%</span>
+      <span class="stat-label">Ops efficiency gain</span>
+    </div>
+    <div class="stat-divider">
+      <span class="stat-num">1</span>
+      <span class="stat-label">US Patent as named inventor</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" style="margin:0;" />
+
+<!-- ABOUT -->
+<div class="section">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div>
+      <h2 class="section-title">Product leader at the intersection of data, automation & compliance.</h2>
+      <div class="about-body">
+        <p>I'm a Lead Product Owner based in New York with deep expertise in FinTech and InsurTech. My career has been defined by building products that tackle genuinely hard problems — automating complex underwriting decisions, orchestrating global payments workflows, and bringing machine learning into regulated industries.</p>
+        <p>I bring a rare combination: technical fluency, stakeholder empathy, and a track record of shipping. I've led globally distributed engineering teams, partnered with data science and actuarial groups, and navigated legal and compliance requirements without losing sight of the user.</p>
+        <p>I hold an MBA <em>cum laude</em> from Notre Dame and am a Certified Scrum Master and Product Owner. I'm currently exploring my next challenge — ideally at the Director or VP level, in a company where product is a first-class citizen.</p>
+      </div>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-card">
+        <div class="highlight-card-title">US Patent · Named Inventor</div>
+        <div class="highlight-card-body">Systems & Methods for Interaction Between Multiple Computing Devices to Process Data Records — enhancing data completeness in underwriting.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-card-title">MBA, cum laude · University of Notre Dame</div>
+        <div class="highlight-card-body">Also holds a BBA in Information Technology Management (Dean's List) from Notre Dame.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-card-title">Certified Scrum Master & Product Owner</div>
+        <div class="highlight-card-body">Practiced across multiple enterprise organizations with globally distributed teams.</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-card-title">Point Foundation · Scholarship Reader</div>
+        <div class="highlight-card-body">Graduate scholarship application reviewer since 2017. Notre Dame DEI scholarship fundraising committee.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- EXPERIENCE -->
+<div class="section" id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Where I've built.</h2>
+
+  <div class="exp-item">
+    <div>
+      <div class="exp-company">Taulia Inc.</div>
+      <div class="exp-employer">An SAP Company</div>
+      <div class="exp-date">May 2021 – Present</div>
+    </div>
+    <div>
+      <div class="exp-role">Product Manager / Lead Product Owner</div>
+      <div class="exp-desc">Led development and launch of cloud tools enhancing data capture and automation for payments finance products. Delivered a new onboarding platform that reduced process duration by 70% while supporting compliance and KYC initiatives. Managed globally distributed engineering teams across full delivery lifecycle.</div>
+      <span class="pill pill-teal">Supply Chain Finance</span>
+      <span class="pill pill-teal">KYC / Compliance</span>
+      <span class="pill pill-teal">Payments</span>
+      <span class="pill">Cloud Platforms</span>
+      <span class="pill">Agile</span>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div>
+      <div class="exp-company">Haven Technologies</div>
+      <div class="exp-employer">A MassMutual Company</div>
+      <div class="exp-date">Nov 2015 – May 2021</div>
+    </div>
+    <div>
+      <div class="exp-role">Senior Product Owner — Haven Underwriting Platform</div>
+      <div class="exp-desc">Owned end-to-end product lifecycle for life underwriting innovation — integrating predictive ML models, rules engines, and third-party data sources. Achieved a 60% efficiency gain in new business operations. Grew the platform from 2 to 70+ users. Launched 10+ new features powered by business intelligence tooling.</div>
+      <span class="pill pill-teal">Underwriting Automation</span>
+      <span class="pill pill-teal">ML / Predictive Models</span>
+      <span class="pill pill-teal">InsurTech</span>
+      <span class="pill">BI & Analytics</span>
+      <span class="pill">Rules Engines</span>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div>
+      <div class="exp-company">Teachers College</div>
+      <div class="exp-employer">Columbia University</div>
+      <div class="exp-date">Jun 2014 – Oct 2015</div>
+    </div>
+    <div>
+      <div class="exp-role">Operations Manager / Scrum Master</div>
+      <div class="exp-desc">Improved data quality and research processes for 5,000+ users, reducing processing time by 50%. Collaborated with academic and technical teams to deliver custom data features and actionable insights.</div>
+      <span class="pill">Scrum</span>
+      <span class="pill">Data Operations</span>
+      <span class="pill">Process Improvement</span>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div>
+      <div class="exp-company">Columbia & Notre Dame</div>
+      <div class="exp-date">2009 – 2014</div>
+    </div>
+    <div>
+      <div class="exp-role">Technical Operations & Business Process Analyst</div>
+      <div class="exp-desc">Managed enterprise ticketing system implementation improving operational efficiency by 45%. Developed and automated key business processes, reducing turnaround time by 70%.</div>
+      <span class="pill">Process Automation</span>
+      <span class="pill">Enterprise Systems</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- SKILLS -->
+<div class="section">
+  <div class="section-label">Skills</div>
+  <h2 class="section-title">What I bring to the table.</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </div>
+      <div class="skill-card-title">Product Management</div>
+      <div class="skill-items">Roadmap development · Backlog prioritization · Agile (Scrum / Kanban) · KPI definition · User-centric design · Iterative delivery · Vendor management</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="skill-card-title">Technical</div>
+      <div class="skill-items">SQL · AWS · Tableau / Qlik / Looker · JIRA / Confluence · ServiceNow · AI prompt engineering · Process automation · Data visualization</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="skill-card-title">Domain Expertise</div>
+      <div class="skill-items">FinTech · InsurTech · Regulatory compliance · Life underwriting · Payments infrastructure · ML / Predictive modeling · KYC / AML</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="skill-card-title">Leadership</div>
+      <div class="skill-items">Cross-functional team leadership · Globally distributed teams · Stakeholder management · Mentoring · Change management · Operational excellence</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <div class="skill-card-title">Analytics & Insights</div>
+      <div class="skill-items">KPI tracking · Business intelligence · Data-driven decision making · Actuarial tables · ICD-10 / CPT codes · MIB coding · Rx data</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      </div>
+      <div class="skill-card-title">Soft Skills</div>
+      <div class="skill-items">Strategic thinking · Executive communication · Problem-solving · Adaptability · Customer focus · Continuous improvement · Partnership building</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contact">
+  <h2 class="section-title">Let's build something great.</h2>
+  <p>I'm currently open to Director and VP-level product opportunities in FinTech, InsurTech, and adjacent regulated industries.</p>
+  <div class="cta-banner-btns">
+    <a href="mailto:ram.ballesteros3@gmail.com" class="btn-primary">Get in touch</a>
+    <a href="https://www.linkedin.com/in/ramballesteros/" target="_blank" class="btn-secondary" style="color:rgba(255,255,255,0.7); border-color:rgba(255,255,255,0.2);">View LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Ramiro Ballesteros · <a href="mailto:ram.ballesteros3@gmail.com">ram.ballesteros3@gmail.com</a> · New York, NY</p>
+</footer>
+
+</body>
+</html>
