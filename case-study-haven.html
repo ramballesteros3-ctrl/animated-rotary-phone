@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haven Underwriting Platform · Case Study · Ramiro Ballesteros</title>
+  <meta name="description" content="How Ramiro Ballesteros led the Haven underwriting platform from 2 to 70+ users, achieved a 60% efficiency gain, and co-invented a US patent at MassMutual." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* HERO */
+    .cs-hero {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cs-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(29,158,117,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cs-hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .cs-hero-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .cs-hero-back:hover { color: var(--teal-300); }
+    .cs-hero-tag {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal-300);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .cs-hero-title {
+      font-family: var(--font-serif);
+      font-size: 46px;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .cs-hero-title em {
+      font-style: italic;
+      color: var(--teal-300);
+    }
+    .cs-hero-summary {
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+    .cs-hero-meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .cs-hero-meta-item { }
+    .cs-hero-meta-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 4px;
+    }
+    .cs-hero-meta-value {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 400;
+    }
+
+    /* METRICS STRIP */
+    .metrics-strip {
+      background: var(--teal-800);
+      color: var(--white);
+    }
+    .metrics-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    .metric-num {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      color: var(--teal-100);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+      letter-spacing: -1px;
+    }
+    .metric-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+    .metric-divider { border-left: 1px solid rgba(255,255,255,0.12); }
+
+    /* CONTENT */
+    .cs-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    /* SECTION BLOCKS */
+    .cs-block { margin-bottom: 4rem; }
+    .cs-block-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal-700);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .cs-block-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      color: var(--charcoal);
+    }
+    .cs-body {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--charcoal-mid);
+      font-weight: 300;
+    }
+    .cs-body p + p { margin-top: 1.25rem; }
+
+    /* PULL QUOTE */
+    .cs-pullquote {
+      border-left: 3px solid var(--teal-500);
+      padding: 1.25rem 1.5rem;
+      margin: 2.5rem 0;
+      background: var(--teal-50);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .cs-pullquote p {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--teal-800);
+      font-style: italic;
+    }
+
+    /* HIGHLIGHT CARDS */
+    .cs-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 2rem 0;
+    }
+    .cs-highlight-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      border-top: 3px solid var(--teal-500);
+    }
+    .cs-highlight-num {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      color: var(--teal-700);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .cs-highlight-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+    .cs-highlight-body { font-size: 13px; color: var(--charcoal-mid); font-weight: 300; line-height: 1.5; }
+
+    /* TIMELINE */
+    .cs-timeline { margin: 2rem 0; }
+    .cs-timeline-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+    .cs-timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 39px;
+      top: 28px;
+      bottom: 0;
+      width: 1px;
+      background: var(--gray-mid);
+    }
+    .cs-timeline-item:last-child::before { display: none; }
+    .cs-timeline-year {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--teal-700);
+      padding-top: 4px;
+      text-align: center;
+    }
+    .cs-timeline-dot {
+      width: 10px; height: 10px;
+      background: var(--teal-500);
+      border-radius: 50%;
+      margin: 0 auto 6px;
+    }
+    .cs-timeline-content-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .cs-timeline-content-body { font-size: 13px; color: var(--charcoal-mid); font-weight: 300; line-height: 1.6; }
+
+    /* PATENT CARD */
+    .cs-patent-card {
+      background: var(--charcoal);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+    .cs-patent-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal-300);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .cs-patent-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .cs-patent-meta { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.6; }
+    .cs-patent-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-700);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .cs-patent-btn:hover { background: var(--teal-800); }
+
+    /* DIVIDER */
+    .cs-divider {
+      border: none;
+      border-top: 1px solid var(--gray-mid);
+      margin: 3rem 0;
+    }
+
+    /* OUTCOMES */
+    .cs-outcomes {
+      background: var(--gray-light);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.5rem;
+      margin: 2rem 0;
+    }
+    .cs-outcomes-title { font-size: 14px; font-weight: 500; margin-bottom: 1.25rem; color: var(--charcoal); }
+    .cs-outcome-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-mid);
+      font-size: 14px;
+      color: var(--charcoal-mid);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .cs-outcome-item:last-child { border-bottom: none; }
+    .cs-outcome-check {
+      width: 18px; height: 18px;
+      background: var(--teal-50);
+      border: 1px solid var(--teal-300);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .cs-outcome-check svg { color: var(--teal-700); }
+
+    /* NEXT/PREV NAV */
+    .cs-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0;
+      border-top: 1px solid var(--gray-mid);
+      margin-top: 2rem;
+    }
+    .cs-nav-link {
+      font-size: 13px;
+      color: var(--teal-700);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cs-nav-link:hover { color: var(--teal-800); }
+
+    @media (max-width: 700px) {
+      .cs-hero-title { font-size: 32px; }
+      .metrics-inner { grid-template-columns: 1fr 1fr; }
+      .cs-highlights { grid-template-columns: 1fr; }
+      .cs-patent-card { grid-template-columns: 1fr; }
+      .cs-hero-meta { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Ramiro Ballesteros</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="case-studies.html" class="active">Case Studies</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="cs-hero">
+  <div class="cs-hero-inner">
+    <a href="case-studies.html" class="cs-hero-back">
+      ← Back to case studies
+    </a>
+    <div class="cs-hero-tag">InsurTech · ML · Platform Growth</div>
+    <h1 class="cs-hero-title">From 2 to 70+ users: scaling an <em>underwriting platform</em> at MassMutual.</h1>
+    <p class="cs-hero-summary">How I led Haven Technologies' human underwriting platform from a two-person proof of concept to a production system serving 70+ users — while weaving machine learning into one of insurance's most tradition-bound processes, and co-inventing a patented data system along the way.</p>
+    <div class="cs-hero-meta">
+      <div class="cs-hero-meta-item">
+        <div class="cs-hero-meta-label">Company</div>
+        <div class="cs-hero-meta-value">Haven Technologies · MassMutual</div>
+      </div>
+      <div class="cs-hero-meta-item">
+        <div class="cs-hero-meta-label">Role</div>
+        <div class="cs-hero-meta-value">Senior Product Owner</div>
+      </div>
+      <div class="cs-hero-meta-item">
+        <div class="cs-hero-meta-label">Timeline</div>
+        <div class="cs-hero-meta-value">Nov 2015 – May 2021</div>
+      </div>
+      <div class="cs-hero-meta-item">
+        <div class="cs-hero-meta-label">Industry</div>
+        <div class="cs-hero-meta-value">Life Insurance · InsurTech</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<div class="metrics-strip">
+  <div class="metrics-inner">
+    <div>
+      <span class="metric-num">60%</span>
+      <span class="metric-label">Efficiency gain in new business operations</span>
+    </div>
+    <div class="metric-divider">
+      <span class="metric-num">70+</span>
+      <span class="metric-label">Platform users at peak (from 2 at launch)</span>
+    </div>
+    <div class="metric-divider">
+      <span class="metric-num">10+</span>
+      <span class="metric-label">New product features launched</span>
+    </div>
+    <div class="metric-divider">
+      <span class="metric-num">1</span>
+      <span class="metric-label">US Patent as named inventor</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- THE PROBLEM -->
+  <div class="cs-block fade-up">
+    <div class="cs-block-label">The Problem</div>
+    <h2 class="cs-block-title">Life insurance underwriting: mission-critical, and stubbornly stagnant.</h2>
+    <div class="cs-body">
+      <p>Underwriting is the beating heart of any life insurer. Every policy begins with an underwriter — a deeply experienced professional who evaluates risk, reviews applicant data, and ultimately decides whether to issue coverage and at what price. Get it wrong, and the financial consequences are severe. Get it right consistently, and you build a healthy, sustainable book of business.</p>
+      <p>But for all its importance, the underwriting process in 2015 looked remarkably similar to what it had for decades. Underwriters worked from PDFs and paper files. Data from multiple third-party sources — medical records, motor vehicle reports, prescription history, MIB codes — arrived in fragmented, incompatible formats and had to be manually reconciled. Cases sat in queues, decisions took days, and errors happened. Not because underwriters weren't skilled — they were extraordinarily skilled — but because the tooling was failing them.</p>
+      <p>The industry had largely accepted this as an immutable reality. Underwriting was too complex, too regulated, too human to be meaningfully automated. Haven Technologies, a MassMutual venture, was built on the conviction that this was wrong.</p>
+    </div>
+
+    <div class="cs-pullquote">
+      <p>"The goal wasn't to replace underwriters. It was to give them a platform worthy of their expertise — and to prove that human judgment and machine intelligence could grow stronger together."</p>
+    </div>
+  </div>
+
+  <hr class="cs-divider" />
+
+  <!-- MY ROLE -->
+  <div class="cs-block fade-up">
+    <div class="cs-block-label">My Role</div>
+    <h2 class="cs-block-title">End-to-end product ownership across a six-year build.</h2>
+    <div class="cs-body">
+      <p>I joined Haven Technologies as Senior Product Owner for the underwriting platform in November 2015. I owned the full product lifecycle — from initial discovery and requirements through delivery, iteration, and long-term roadmap strategy. My stakeholders spanned underwriters, data scientists, actuaries, engineers, legal, compliance, risk, and governance teams.</p>
+      <p>This wasn't a role where I could hand off a spec and wait. Haven was a startup operating inside a 170-year-old mutual insurance company. That meant navigating the speed and ambiguity of a startup environment while respecting the risk controls and regulatory obligations of one of the largest life insurers in the United States. Every decision carried weight.</p>
+    </div>
+  </div>
+
+  <hr class="cs-divider" />
+
+  <!-- THE BUILD -->
+  <div class="cs-block fade-up">
+    <div class="cs-block-label">The Build</div>
+    <h2 class="cs-block-title">Three hard problems that shaped everything.</h2>
+    <div class="cs-body">
+      <p>Growing this platform from two pilot users to 70+ active underwriters required solving three interconnected challenges simultaneously — and getting any one of them wrong would have collapsed the others.</p>
+    </div>
+
+    <div class="cs-highlights">
+      <div class="cs-highlight-card">
+        <div class="cs-highlight-num">01</div>
+        <div class="cs-highlight-title">Keeping users engaged when paper was always an option</div>
+        <div class="cs-highlight-body">Underwriters could opt out at any time — just print the file and work it manually. Every usability failure was a data loss event. User satisfaction wasn't a vanity metric; it was existential.</div>
+      </div>
+      <div class="cs-highlight-card">
+        <div class="cs-highlight-num">02</div>
+        <div class="cs-highlight-title">Building genuine ownership among expert users</div>
+        <div class="cs-highlight-body">Underwriters had deep domain expertise and decades of instincts. For the platform to succeed, they couldn't feel like passive recipients of technology decisions. They needed to feel like co-owners.</div>
+      </div>
+      <div class="cs-highlight-card">
+        <div class="cs-highlight-num">03</div>
+        <div class="cs-highlight-title">Bridging the algorithmic and human underwriting worlds</div>
+        <div class="cs-highlight-body">The industry treated accelerated (algorithmic) and human underwriting as separate domains. I believed the real opportunity was at their intersection — where ML and human judgment could inform and reinforce each other.</div>
+      </div>
+      <div class="cs-highlight-card">
+        <div class="cs-highlight-num">04</div>
+        <div class="cs-highlight-title">Integrating fragmented, incompatible data sources</div>
+        <div class="cs-highlight-body">Third-party underwriting data — Rx history, MIB codes, MVR records, medical records — arrived in different formats, with gaps, duplicates, and inconsistencies that had to be resolved before an underwriter could work a case.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPROACH -->
+  <div class="cs-block fade-up">
+    <div class="cs-block-label">The Approach</div>
+    <h2 class="cs-block-title">Ram's Townhalls: turning users into stakeholders.</h2>
+    <div class="cs-body">
+      <p>Early in the platform's life, I ran weekly calls with our two to four pilot users. These weren't passive demos or status updates — they were working sessions where underwriters reviewed real cases alongside the product, surfaced friction, and helped shape what came next. Every piece of feedback fed directly into the backlog.</p>
+      <p>As the user base grew, these sessions evolved into what became known internally as "Ram's Townhalls" — structured forums that ranged from full sprint reviews to deep dives into specific underwriting scenarios the team was encountering in production. Underwriters weren't just end users; they were design partners, QA testers, and strategic advisors.</p>
+      <p>This approach did something critical: it made underwriters feel invested. When a feature shipped that they had requested, or when we worked through a real case they had flagged, the platform stopped being something done *to* them and became something built *with* them. Adoption grew not because we mandated it, but because users wanted to use a tool they'd helped shape.</p>
+    </div>
+
+    <div class="cs-pullquote">
+      <p>"What started as a weekly call with 2 people became a standing institution inside the organization — a community of underwriters who took genuine ownership of the platform's evolution."</p>
+    </div>
+
+    <div class="cs-body">
+      <p>On the technical side, I worked closely with data science and engineering teams to integrate machine learning models and rules engines directly into the human underwriting workflow. Rather than positioning algorithmic outputs as a replacement for human judgment, we surfaced them as inputs — a risk score here, a flagged anomaly there — that underwriters could interrogate, override, and learn from.</p>
+      <p>This bridging of two previously siloed worlds — accelerated underwriting and human underwriting — became one of Haven's most significant product differentiators. The platform didn't just digitize the existing process; it created a new one in which human expertise and machine intelligence compounded each other over time.</p>
+    </div>
+  </div>
+
+  <hr class="cs-divider" />
+
+  <!-- TIMELINE -->
+  <div class="cs-block fade-up">
+    <div class="cs-block-label">Timeline</div>
+    <h2 class="cs-block-title">Six years of iterative growth.</h2>
+    <div class="cs-timeline">
+      <div class="cs-timeline-item">
+        <div class="cs-timeline-year">
+          <div class="cs-timeline-dot"></div>
+          2015
+        </div>
+        <div>
+          <div class="cs-timeline-content-title">Joined Haven as Senior Product Owner</div>
+          <div class="cs-timeline-content-body">Took ownership of the underwriting platform with 2 pilot users. Established discovery process and weekly user feedback cadence.</div>
+        </div>
+      </div>
+      <div class="cs-timeline-item">
+        <div class="cs-timeline-year">
+          <div class="cs-timeline-dot"></div>
+          2017
+        </div>
+        <div>
+          <div class="cs-timeline-content-title">First ML model integrations shipped</div>
+          <div class="cs-timeline-content-body">Began integrating predictive models and third-party underwriting data sources into the platform. Introduced rules engine alongside human review workflows.</div>
+        </div>
+      </div>
+      <div class="cs-timeline-item">
+        <div class="cs-timeline-year">
+          <div class="cs-timeline-dot"></div>
+          2018
+        </div>
+        <div>
+          <div class="cs-timeline-content-title">Platform reached 30+ active users</div>
+          <div class="cs-timeline-content-body">"Ram's Townhalls" became a formal institution. User satisfaction scores began trending up 10% annually as the co-design model took hold.</div>
+        </div>
+      </div>
+      <div class="cs-timeline-item">
+        <div class="cs-timeline-year">
+          <div class="cs-timeline-dot"></div>
+          2020
+        </div>
+        <div>
+          <div class="cs-timeline-content-title">Patent filed: US11789962B1</div>
+          <div class="cs-timeline-content-body">Co-invented and filed a US patent for a data processing system that standardizes, reconciles, and presents multi-source underwriting data to analyst devices in real time.</div>
+        </div>
+      </div>
+      <div class="cs-timeline-item">
+        <div class="cs-timeline-year">
+          <div class="cs-timeline-dot"></div>
+          2021
+        </div>
+        <div>
+          <div class="cs-timeline-content-title">70+ users · 60% efficiency gain · 10+ features launched</div>
+          <div class="cs-timeline-content-body">Platform reached full scale. Significant measurable improvements in new business operations efficiency, user satisfaction, and mortality experience.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="cs-divider" />
+
+  <!-- PATENT -->
+  <div class="cs-block fade-up">
+    <div class="cs-block-label">The Patent</div>
+    <h2 class="cs-block-title">Inventing a better way to process underwriting data.</h2>
+    <div class="cs-body">
+      <p>One of the core technical challenges we faced was the fragmented, inconsistent nature of underwriting data. Information about a single applicant might arrive from a dozen different sources — in different formats, with different naming conventions, with duplicates, gaps, and conflicts that an underwriter had to manually resolve before they could even begin their analysis.</p>
+      <p>Working closely with engineering and co-inventor Mark Sayre, I helped conceive and develop a system that fundamentally changed how this data was handled. The patented invention describes a server-based system that retrieves raw data records from multiple sources, standardizes and reconciles them into a unified data record, identifies gaps and flags them for analyst review, and updates analyst devices in real time as any underwriter works a case — preventing duplicated effort across the team.</p>
+      <p>The system also generates dynamic electronic documents — underwriting outputs that update automatically as underlying data changes, rather than requiring manual regeneration. It was a meaningful technical advancement in how multi-source, multi-format insurance data could be processed and presented to human analysts at scale.</p>
+    </div>
+
+    <div class="cs-patent-card">
+      <div>
+        <div class="cs-patent-label">US Patent · Active through 2040</div>
+        <div class="cs-patent-title">Systems and Methods for Interaction Between Multiple Computing Devices to Process Data Records</div>
+        <div class="cs-patent-meta">Patent No. US11789962B1 · Filed Feb 2022 · Granted Oct 2023 · Named Inventors: Ramiro Ballesteros & Mark Sayre · Assignee: Massachusetts Mutual Life Insurance Co.</div>
+      </div>
+      <a href="https://patents.google.com/patent/US11789962B1/" target="_blank" class="cs-patent-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View on Google Patents
+      </a>
+    </div>
+  </div>
+
+  <hr class="cs-divider" />
+
+  <!-- OUTCOMES -->
+  <div class="cs-block fade-up">
+    <div class="cs-block-label">Outcomes</div>
+    <h2 class="cs-block-title">What we built, and what it delivered.</h2>
+
+    <div class="cs-outcomes">
+      <div class="cs-outcomes-title">Key results</div>
+      <div class="cs-outcome-item">
+        <div class="cs-outcome-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>60% efficiency gain in new business underwriting operations — cases processed faster, with fewer errors and less manual data reconciliation</span>
+      </div>
+      <div class="cs-outcome-item">
+        <div class="cs-outcome-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Platform scaled from 2 to 70+ active users across underwriting, data science, actuarial, and operations teams</span>
+      </div>
+      <div class="cs-outcome-item">
+        <div class="cs-outcome-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>10% annual increase in user satisfaction scores, sustained over multiple years through the co-design model</span>
+      </div>
+      <div class="cs-outcome-item">
+        <div class="cs-outcome-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>10+ product features launched, including ML model integrations, third-party data source connectors, and rules engine UI</span>
+      </div>
+      <div class="cs-outcome-item">
+        <div class="cs-outcome-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>Measurable improvements in mortality experience and agent/client relationship outcomes as data quality and decision speed improved</span>
+      </div>
+      <div class="cs-outcome-item">
+        <div class="cs-outcome-check">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span>US Patent granted for a data processing system invented in collaboration with engineering, now active through 2040</span>
+      </div>
+    </div>
+
+    <div class="cs-body" style="margin-top: 2rem;">
+      <p>More broadly, this work helped reshape how Haven — and by extension MassMutual — thought about the relationship between human expertise and algorithmic tools. The platform demonstrated that underwriters didn't have to choose between their instincts and the data. With the right product, those two things could make each other stronger.</p>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="cs-nav-row">
+    <a href="case-studies.html" class="cs-nav-link">← All case studies</a>
+    <a href="case-study-taulia.html" class="cs-nav-link">Next: Taulia onboarding →</a>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<section style="background: var(--charcoal); color: var(--white); text-align: center; padding: 4rem 2rem;">
+  <div style="max-width: 500px; margin: 0 auto;">
+    <div style="font-family: var(--font-serif); font-size: 30px; letter-spacing: -0.5px; margin-bottom: 1rem;">Interested in working together?</div>
+    <p style="color: rgba(255,255,255,0.55); font-size: 15px; font-weight: 300; margin-bottom: 2rem;">I'm currently open to Director and VP-level product opportunities in FinTech and InsurTech.</p>
+    <a href="mailto:ram.ballesteros3@gmail.com" class="btn-primary">Get in touch</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Ramiro Ballesteros · <a href="mailto:ram.ballesteros3@gmail.com">ram.ballesteros3@gmail.com</a> · New York, NY</p>
+</footer>
+
+</body>
+</html>
