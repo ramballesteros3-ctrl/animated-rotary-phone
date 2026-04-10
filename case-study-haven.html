@@ -74,7 +74,6 @@
       gap: 2rem;
       flex-wrap: wrap;
     }
-    .cs-hero-meta-item { }
     .cs-hero-meta-label {
       font-size: 10px;
       letter-spacing: 2px;
@@ -347,7 +346,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="index.html#experience">Experience</a></li>
     <li><a href="case-studies.html" class="active">Case Studies</a></li>
-    <li><a href="blog.html">Blog</a></li>
+    <!--<li><a href="blog.html">Blog</a></li>-->
     <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
@@ -412,7 +411,7 @@
     <div class="cs-block-label">The Problem</div>
     <h2 class="cs-block-title">Life insurance underwriting: mission-critical, and stubbornly stagnant.</h2>
     <div class="cs-body">
-      <p>Underwriting is the beating heart of any life insurer. Every policy begins with an underwriter — a deeply experienced professional who evaluates risk, reviews applicant data, and ultimately decides whether to issue coverage and at what price. Get it wrong, and the financial consequences are severe. Get it right consistently, and you build a healthy, sustainable book of business.</p>
+      <p>Underwriting, the process of risk assessment and classification, is the beating heart of any life insurer. Every policy begins with an underwriter — a deeply experienced professional who evaluates risk, reviews applicant data, and ultimately decides whether to issue coverage and at what price. Get it wrong, and the financial consequences are severe. Get it right consistently, and you build a healthy, sustainable book of business.</p>
       <p>But for all its importance, the underwriting process in 2015 looked remarkably similar to what it had for decades. Underwriters worked from PDFs and paper files. Data from multiple third-party sources — medical records, motor vehicle reports, prescription history, MIB codes — arrived in fragmented, incompatible formats and had to be manually reconciled. Cases sat in queues, decisions took days, and errors happened. Not because underwriters weren't skilled — they were extraordinarily skilled — but because the tooling was failing them.</p>
       <p>The industry had largely accepted this as an immutable reality. Underwriting was too complex, too regulated, too human to be meaningfully automated. Haven Technologies, a MassMutual venture, was built on the conviction that this was wrong.</p>
     </div>
@@ -429,7 +428,7 @@
     <div class="cs-block-label">My Role</div>
     <h2 class="cs-block-title">End-to-end product ownership across a six-year build.</h2>
     <div class="cs-body">
-      <p>I joined Haven Technologies as Senior Product Owner for the underwriting platform in November 2015. I owned the full product lifecycle — from initial discovery and requirements through delivery, iteration, and long-term roadmap strategy. My stakeholders spanned underwriters, data scientists, actuaries, engineers, legal, compliance, risk, and governance teams.</p>
+      <p>I joined Haven Technologies as Product Owner for the underwriting platform in November 2015. I owned the full product lifecycle — from initial discovery and requirements through delivery, iteration, and long-term roadmap strategy. My stakeholders spanned underwriters, data scientists, actuaries, engineers, legal, compliance, risk, and governance teams.</p>
       <p>This wasn't a role where I could hand off a spec and wait. Haven was a startup operating inside a 170-year-old mutual insurance company. That meant navigating the speed and ambiguity of a startup environment while respecting the risk controls and regulatory obligations of one of the largest life insurers in the United States. Every decision carried weight.</p>
     </div>
   </div>
@@ -439,9 +438,9 @@
   <!-- THE BUILD -->
   <div class="cs-block fade-up">
     <div class="cs-block-label">The Build</div>
-    <h2 class="cs-block-title">Three hard problems that shaped everything.</h2>
+    <h2 class="cs-block-title">Four hard problems that shaped everything.</h2>
     <div class="cs-body">
-      <p>Growing this platform from two pilot users to 70+ active underwriters required solving three interconnected challenges simultaneously — and getting any one of them wrong would have collapsed the others.</p>
+      <p>Growing this platform from two pilot users to 70+ active underwriters required solving four interconnected challenges simultaneously — and getting any one of them wrong would have collapsed the others.</p>
     </div>
 
     <div class="cs-highlights">
@@ -496,12 +495,12 @@
     <h2 class="cs-block-title">One screen. Every data source. The underwriter in control.</h2>
     <div class="cs-body">
       <p>The central design challenge was deceptively simple to state and genuinely hard to solve: how do you take data from a dozen incompatible third-party sources — medical records, prescription history, motor vehicle reports, MIB codes, algorithmic model outputs — and present it to a human underwriter in a way that's coherent, actionable, and fast?</p>
-      <p>The answer was the analyst workbench. Each case was broken into discrete issue cards — one per data source or topic — each with a real-time status indicator: New, In Progress, or Done. When an underwriter opened a card, they saw the relevant data pulled and standardized from its source, alongside ML model scores that provided predictive context. They could review, annotate, flag, request additional information, or mark it complete — all in one place, without switching between systems or reconciling conflicting file formats.</p>
-      <p>Critically, the platform was built for collaboration. When one analyst worked a card, its status updated in real time for every other analyst on the case — preventing duplicated effort and surfacing a shared, living picture of where each case stood. This wasn't just good UX. It became the foundation of the patented system we'd eventually file.</p>
+      <p>The answer was the design of our platform. Each case was broken down into discrete issue cards — one per topic or categorized by life underwriting guidelines and flagged by our rules engine — each with a real-time status indicator: New, In Progress, or Done. When an underwriter opened a card, they saw the relevant data pulled and standardized from its source, alongside ML model scores that provided predictive context. They could review, annotate, flag, request additional information, or mark it complete — all in one place, without switching between systems or reconciling conflicting file formats.</p>
+      <p>Critically, the platform was built for collaboration. When one underwriter worked a card, its status updated in real time for every other analyst on the case — preventing duplicated effort and surfacing a shared, living picture of where each case stood. This wasn't just good UX. It became the foundation of the patented system we'd eventually file.</p>
     </div>
 
     <div style="margin: 2rem 0;">
-      <div style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal-700); font-weight: 500; margin-bottom: 12px;">Analyst workbench · conceptual wireframe</div>
+      <div style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal-700); font-weight: 500; margin-bottom: 12px;">Underwriter workbench · conceptual wireframe</div>
 
       <div style="font-family: var(--font-sans); background: #F5F4F0; border-radius: 12px; padding: 20px;">
         <div style="background: white; border: 1.5px solid #D0CEC8; border-radius: 10px; overflow: hidden;">
@@ -618,7 +617,7 @@
           2015
         </div>
         <div>
-          <div class="cs-timeline-content-title">Joined Haven as Senior Product Owner</div>
+          <div class="cs-timeline-content-title">Joined Haven as Product Owner</div>
           <div class="cs-timeline-content-body">Took ownership of the underwriting platform with 2 pilot users. Established discovery process and weekly user feedback cadence.</div>
         </div>
       </div>
@@ -723,12 +722,12 @@
         </div>
         <span>10+ product features launched, including ML model integrations, third-party data source connectors, and rules engine UI</span>
       </div>
-      <div class="cs-outcome-item">
+      <!--<div class="cs-outcome-item">
         <div class="cs-outcome-check">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <span>Measurable improvements in mortality experience and agent/client relationship outcomes as data quality and decision speed improved</span>
-      </div>
+      </div>-->
       <div class="cs-outcome-item">
         <div class="cs-outcome-check">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
