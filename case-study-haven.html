@@ -74,6 +74,7 @@
       gap: 2rem;
       flex-wrap: wrap;
     }
+    .cs-hero-meta-item { }
     .cs-hero-meta-label {
       font-size: 10px;
       letter-spacing: 2px;
@@ -346,7 +347,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="index.html#experience">Experience</a></li>
     <li><a href="case-studies.html" class="active">Case Studies</a></li>
-    <!--<li><a href="blog.html">Blog</a></li>-->
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
@@ -411,8 +412,8 @@
     <div class="cs-block-label">The Problem</div>
     <h2 class="cs-block-title">Life insurance underwriting: mission-critical, and stubbornly stagnant.</h2>
     <div class="cs-body">
-      <p>Underwriting, or the process of risk assessment and classification, is the beating heart of any life insurer. Usually, every policy requires an underwriter — a deeply experienced professional who evaluates risk, reviews applicant data, and ultimately decides whether to issue coverage and at what price. Get it wrong, and the financial consequences are severe. Get it right consistently, and you build a healthy, sustainable book of business.</p>
-      <p>But for all its importance, the underwriting process in 2015 looked remarkably similar to what it had for decades. Underwriters worked from PDFs and paper files. Data from multiple third-party sources — medical records, motor vehicle reports, prescription history, MIB codes — arrived in fragmented, incompatible formats and had to be manually reconciled. Cases sat in queues, decisions took days, and errors happened. Not because underwriters weren't skilled — they were extraordinarily skilled — but largely because the tooling was failing them.</p>
+      <p>Underwriting is the beating heart of any life insurer. Every policy begins with an underwriter — a deeply experienced professional who evaluates risk, reviews applicant data, and ultimately decides whether to issue coverage and at what price. Get it wrong, and the financial consequences are severe. Get it right consistently, and you build a healthy, sustainable book of business.</p>
+      <p>But for all its importance, the underwriting process in 2015 looked remarkably similar to what it had for decades. Underwriters worked from PDFs and paper files. Data from multiple third-party sources — medical records, motor vehicle reports, prescription history, MIB codes — arrived in fragmented, incompatible formats and had to be manually reconciled. Cases sat in queues, decisions took days, and errors happened. Not because underwriters weren't skilled — they were extraordinarily skilled — but because the tooling was failing them.</p>
       <p>The industry had largely accepted this as an immutable reality. Underwriting was too complex, too regulated, too human to be meaningfully automated. Haven Technologies, a MassMutual venture, was built on the conviction that this was wrong.</p>
     </div>
 
@@ -428,7 +429,7 @@
     <div class="cs-block-label">My Role</div>
     <h2 class="cs-block-title">End-to-end product ownership across a six-year build.</h2>
     <div class="cs-body">
-      <p>I joined Haven Technologies as Product Owner for the underwriting platform in November 2015. I owned the full product lifecycle — from initial discovery and requirements through delivery, iteration, and long-term roadmap strategy. My stakeholders spanned underwriters, data scientists, actuaries, engineers, legal, compliance, risk, and governance teams.</p>
+      <p>I joined Haven Technologies as Senior Product Owner for the underwriting platform in November 2015. I owned the full product lifecycle — from initial discovery and requirements through delivery, iteration, and long-term roadmap strategy. My stakeholders spanned underwriters, data scientists, actuaries, engineers, legal, compliance, risk, and governance teams.</p>
       <p>This wasn't a role where I could hand off a spec and wait. Haven was a startup operating inside a 170-year-old mutual insurance company. That meant navigating the speed and ambiguity of a startup environment while respecting the risk controls and regulatory obligations of one of the largest life insurers in the United States. Every decision carried weight.</p>
     </div>
   </div>
@@ -440,7 +441,7 @@
     <div class="cs-block-label">The Build</div>
     <h2 class="cs-block-title">Three hard problems that shaped everything.</h2>
     <div class="cs-body">
-      <p>Growing this platform from two pilot users to 70+ active underwriters required solving four interconnected challenges simultaneously — and getting any one of them wrong would have collapsed the others.</p>
+      <p>Growing this platform from two pilot users to 70+ active underwriters required solving three interconnected challenges simultaneously — and getting any one of them wrong would have collapsed the others.</p>
     </div>
 
     <div class="cs-highlights">
@@ -489,6 +490,123 @@
 
   <hr class="cs-divider" />
 
+  <!-- DESIGN -->
+  <div class="cs-block fade-up">
+    <div class="cs-block-label">The Design</div>
+    <h2 class="cs-block-title">One screen. Every data source. The underwriter in control.</h2>
+    <div class="cs-body">
+      <p>The central design challenge was deceptively simple to state and genuinely hard to solve: how do you take data from a dozen incompatible third-party sources — medical records, prescription history, motor vehicle reports, MIB codes, algorithmic model outputs — and present it to a human underwriter in a way that's coherent, actionable, and fast?</p>
+      <p>The answer was the analyst workbench. Each case was broken into discrete issue cards — one per data source or topic — each with a real-time status indicator: New, In Progress, or Done. When an underwriter opened a card, they saw the relevant data pulled and standardized from its source, alongside ML model scores that provided predictive context. They could review, annotate, flag, request additional information, or mark it complete — all in one place, without switching between systems or reconciling conflicting file formats.</p>
+      <p>Critically, the platform was built for collaboration. When one analyst worked a card, its status updated in real time for every other analyst on the case — preventing duplicated effort and surfacing a shared, living picture of where each case stood. This wasn't just good UX. It became the foundation of the patented system we'd eventually file.</p>
+    </div>
+
+    <div style="margin: 2rem 0;">
+      <div style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal-700); font-weight: 500; margin-bottom: 12px;">Analyst workbench · conceptual wireframe</div>
+
+      <div style="font-family: var(--font-sans); background: #F5F4F0; border-radius: 12px; padding: 20px;">
+        <div style="background: white; border: 1.5px solid #D0CEC8; border-radius: 10px; overflow: hidden;">
+
+          <div style="background: #ECEAE4; padding: 7px 12px; display: flex; align-items: center; gap: 8px; border-bottom: 1.5px solid #D0CEC8;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#D0CEC8;"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#D0CEC8;"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#D0CEC8;"></div>
+            <div style="flex:1;height:16px;background:white;border:1px solid #D0CEC8;border-radius:4px;margin:0 8px;"></div>
+          </div>
+
+          <div style="background:#1C1C1C;padding:9px 16px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:80px;height:11px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
+              <div style="display:flex;gap:14px;">
+                <div style="width:50px;height:9px;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+                <div style="width:60px;height:9px;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+                <div style="width:30px;height:9px;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+                <div style="width:50px;height:9px;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+              </div>
+            </div>
+            <div style="width:60px;height:9px;background:rgba(255,255,255,0.08);border-radius:3px;"></div>
+          </div>
+
+          <div style="background:#2E2E2E;padding:7px 16px;display:flex;align-items:center;gap:10px;">
+            <div style="width:24px;height:16px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
+            <div style="width:90px;height:9px;background:rgba(255,255,255,0.1);border-radius:3px;"></div>
+            <div style="width:60px;height:9px;background:rgba(255,255,255,0.08);border-radius:3px;"></div>
+            <div style="width:70px;height:9px;background:rgba(255,255,255,0.08);border-radius:3px;"></div>
+            <div style="width:50px;height:9px;background:rgba(255,255,255,0.08);border-radius:3px;"></div>
+            <div style="width:60px;height:9px;background:rgba(29,158,117,0.3);border-radius:3px;"></div>
+            <div style="margin-left:auto;width:48px;height:18px;background:#1D9E75;border-radius:3px;opacity:0.7;"></div>
+          </div>
+
+          <div style="background:#FAFAF8;padding:14px;">
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px;">
+
+              <div style="border:1.5px solid #D0CEC8;border-radius:8px;padding:12px;min-height:88px;display:flex;flex-direction:column;justify-content:space-between;background:#F5F4F0;">
+                <div><div style="width:70%;height:9px;background:#D0CEC8;border-radius:3px;margin-bottom:5px;"></div><div style="width:50%;height:7px;background:#E0DED8;border-radius:3px;"></div></div>
+                <div><div style="display:flex;align-items:center;gap:4px;"><div style="width:6px;height:6px;border-radius:50%;background:#1D9E75;"></div><div style="width:28px;height:7px;background:#1D9E75;opacity:0.4;border-radius:3px;"></div></div><div style="font-size:9px;color:#1D9E75;font-style:italic;margin-top:3px;">Done</div></div>
+              </div>
+
+              <div style="border:1.5px dashed #C8C6C0;border-radius:8px;padding:12px;min-height:88px;display:flex;flex-direction:column;justify-content:space-between;background:white;">
+                <div><div style="width:70%;height:9px;background:#D0CEC8;border-radius:3px;margin-bottom:5px;"></div><div style="width:50%;height:7px;background:#E0DED8;border-radius:3px;"></div></div>
+                <div><div style="display:flex;align-items:center;gap:4px;"><div style="width:6px;height:6px;border-radius:50%;background:#BA7517;"></div><div style="width:48px;height:7px;background:#BA7517;opacity:0.4;border-radius:3px;"></div></div><div style="font-size:9px;color:#BA7517;font-style:italic;margin-top:3px;">In progress</div></div>
+              </div>
+
+              <div style="border:1.5px solid #1D9E75;border-radius:8px;padding:12px;min-height:88px;display:flex;flex-direction:column;justify-content:space-between;background:#F0FAF6;">
+                <div><div style="width:70%;height:9px;background:#1D9E75;opacity:0.35;border-radius:3px;margin-bottom:5px;"></div><div style="width:50%;height:7px;background:#E0DED8;border-radius:3px;"></div></div>
+                <div><div style="display:flex;align-items:center;gap:4px;"><div style="width:6px;height:6px;border-radius:50%;background:#185FA5;"></div><div style="width:22px;height:7px;background:#185FA5;opacity:0.4;border-radius:3px;"></div></div><div style="font-size:9px;color:#1D9E75;font-style:italic;margin-top:3px;">Selected · open below</div></div>
+              </div>
+
+              <div style="border:1.5px dashed #C8C6C0;border-radius:8px;padding:12px;min-height:88px;display:flex;flex-direction:column;justify-content:space-between;background:white;">
+                <div><div style="width:70%;height:9px;background:#D0CEC8;border-radius:3px;margin-bottom:5px;"></div><div style="width:50%;height:7px;background:#E0DED8;border-radius:3px;"></div></div>
+                <div><div style="display:flex;align-items:center;gap:4px;"><div style="width:6px;height:6px;border-radius:50%;background:#D0CEC8;"></div><div style="width:22px;height:7px;background:#D0CEC8;border-radius:3px;"></div></div><div style="font-size:9px;color:#9A9890;font-style:italic;margin-top:3px;">New</div></div>
+              </div>
+            </div>
+
+            <div style="border:1.5px solid #D0CEC8;border-radius:8px;overflow:hidden;background:white;">
+              <div style="background:#F5F4F0;padding:9px 14px;border-bottom:1px solid #D0CEC8;display:flex;align-items:center;justify-content:space-between;">
+                <div style="display:flex;align-items:center;gap:10px;"><div style="width:120px;height:9px;background:#C8C6C0;border-radius:3px;"></div><div style="width:70px;height:7px;background:#E0DED8;border-radius:3px;"></div></div>
+                <div style="width:14px;height:14px;border:1.5px solid #C8C6C0;border-radius:50%;"></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 200px;">
+                <div style="padding:14px;border-right:1px solid #E0DED8;">
+                  <div style="display:flex;gap:14px;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #E0DED8;">
+                    <div style="width:55px;height:7px;border-radius:3px;background:#1D9E75;opacity:0.6;"></div>
+                    <div style="width:40px;height:7px;border-radius:3px;background:#E0DED8;"></div>
+                    <div style="width:70px;height:7px;border-radius:3px;background:#E0DED8;"></div>
+                    <div style="width:45px;height:7px;border-radius:3px;background:#E0DED8;"></div>
+                  </div>
+                  <div style="margin-bottom:12px;"><div style="width:60px;height:7px;background:#D0CEC8;border-radius:3px;margin-bottom:7px;"></div><div style="height:7px;background:#E8E6E0;border-radius:100px;margin-bottom:3px;position:relative;"><div style="width:45%;height:7px;background:#1D9E75;border-radius:100px;"></div><div style="position:absolute;top:-3px;left:70%;width:2px;height:13px;background:#9A9890;border-radius:1px;"></div></div><div style="display:inline-block;width:80px;height:18px;background:#F5F4F0;border:1px solid #E0DED8;border-radius:4px;"></div><div style="font-size:9px;color:#1D9E75;font-style:italic;margin-top:2px;">ML score · RX data</div></div>
+                  <div style="margin-bottom:12px;"><div style="width:60px;height:7px;background:#D0CEC8;border-radius:3px;margin-bottom:7px;"></div><div style="height:7px;background:#E8E6E0;border-radius:100px;margin-bottom:3px;position:relative;"><div style="width:66%;height:7px;background:#0F6E56;border-radius:100px;"></div><div style="position:absolute;top:-3px;left:72%;width:2px;height:13px;background:#9A9890;border-radius:1px;"></div></div><div style="display:inline-block;width:80px;height:18px;background:#F5F4F0;border:1px solid #E0DED8;border-radius:4px;"></div><div style="font-size:9px;color:#1D9E75;font-style:italic;margin-top:2px;">ML score · Fluidless</div></div>
+                  <div><div style="width:60px;height:7px;background:#D0CEC8;border-radius:3px;margin-bottom:7px;"></div><div style="height:7px;background:#E8E6E0;border-radius:100px;margin-bottom:3px;position:relative;"><div style="width:31%;height:7px;background:#BA7517;opacity:0.7;border-radius:100px;"></div><div style="position:absolute;top:-3px;left:55%;width:2px;height:13px;background:#9A9890;border-radius:1px;"></div></div><div style="display:inline-block;width:80px;height:18px;background:#F5F4F0;border:1px solid #E0DED8;border-radius:4px;"></div><div style="font-size:9px;color:#1D9E75;font-style:italic;margin-top:2px;">ML score · Mortality</div></div>
+                </div>
+                <div style="padding:14px;">
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;">
+                    <div style="height:26px;border-radius:6px;background:#1D9E75;opacity:0.7;"></div>
+                    <div style="height:26px;border-radius:6px;border:1.5px dashed #C8C6C0;"></div>
+                    <div style="height:26px;border-radius:6px;border:1.5px dashed #C8C6C0;"></div>
+                    <div style="height:26px;border-radius:6px;border:1.5px dashed #C8C6C0;"></div>
+                  </div>
+                  <div style="font-size:9px;color:#1D9E75;font-style:italic;margin-bottom:10px;">Underwriter CTAs</div>
+                  <div style="width:40px;height:7px;background:#D0CEC8;border-radius:3px;margin-bottom:7px;"></div>
+                  <div style="height:55px;border:1.5px dashed #C8C6C0;border-radius:6px;margin-bottom:8px;background:#FAFAF8;"></div>
+                  <div style="width:40px;height:7px;background:#D0CEC8;border-radius:3px;margin-bottom:7px;"></div>
+                  <div style="height:38px;border:1.5px dashed #C8C6C0;border-radius:6px;background:#FAFAF8;"></div>
+                  <div style="font-size:9px;color:#9A9890;font-style:italic;margin-top:4px;">Notes · multi-analyst</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;padding:8px 14px;border-top:1px solid #E0DED8;background:#F5F4F0;">
+                <div style="display:flex;align-items:center;gap:4px;font-size:9px;color:#9A9890;"><div style="width:7px;height:7px;border-radius:50%;background:#1D9E75;"></div>Done</div>
+                <div style="display:flex;align-items:center;gap:4px;font-size:9px;color:#9A9890;"><div style="width:7px;height:7px;border-radius:50%;background:#BA7517;"></div>In progress</div>
+                <div style="display:flex;align-items:center;gap:4px;font-size:9px;color:#9A9890;"><div style="width:7px;height:7px;border-radius:50%;background:#185FA5;"></div>Selected</div>
+                <div style="display:flex;align-items:center;gap:4px;font-size:9px;color:#9A9890;"><div style="width:7px;height:7px;border-radius:50%;background:#D0CEC8;"></div>New</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="cs-divider" />
+
   <!-- TIMELINE -->
   <div class="cs-block fade-up">
     <div class="cs-block-label">Timeline</div>
@@ -500,7 +618,7 @@
           2015
         </div>
         <div>
-          <div class="cs-timeline-content-title">Joined Haven as Product Owner</div>
+          <div class="cs-timeline-content-title">Joined Haven as Senior Product Owner</div>
           <div class="cs-timeline-content-body">Took ownership of the underwriting platform with 2 pilot users. Established discovery process and weekly user feedback cadence.</div>
         </div>
       </div>
@@ -605,12 +723,12 @@
         </div>
         <span>10+ product features launched, including ML model integrations, third-party data source connectors, and rules engine UI</span>
       </div>
-      <!--<div class="cs-outcome-item">
+      <div class="cs-outcome-item">
         <div class="cs-outcome-check">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <span>Measurable improvements in mortality experience and agent/client relationship outcomes as data quality and decision speed improved</span>
-      </div>-->
+      </div>
       <div class="cs-outcome-item">
         <div class="cs-outcome-check">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -627,7 +745,7 @@
   <!-- BOTTOM NAV -->
   <div class="cs-nav-row">
     <a href="case-studies.html" class="cs-nav-link">← All case studies</a>
-    <!--<a href="case-study-taulia.html" class="cs-nav-link">Next: Taulia onboarding →</a>-->
+    <a href="case-study-taulia.html" class="cs-nav-link">Next: Taulia onboarding →</a>
   </div>
 
 </div>

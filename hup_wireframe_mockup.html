@@ -1,0 +1,208 @@
+
+<style>
+  .wf { font-family: var(--font-sans); background: #F5F4F0; border-radius: 12px; padding: 24px; }
+  .wf-browser { background: white; border: 1.5px solid #D0CEC8; border-radius: 10px; overflow: hidden; }
+  .wf-chrome { background: #ECEAE4; padding: 8px 12px; display: flex; align-items: center; gap: 8px; border-bottom: 1.5px solid #D0CEC8; }
+  .wf-dot { width: 8px; height: 8px; border-radius: 50%; background: #D0CEC8; }
+  .wf-bar { flex: 1; height: 18px; background: white; border: 1px solid #D0CEC8; border-radius: 4px; margin: 0 8px; }
+  .wf-topbar { background: #1C1C1C; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; }
+  .wf-logo { width: 80px; height: 12px; background: rgba(255,255,255,0.15); border-radius: 3px; }
+  .wf-nav-items { display: flex; gap: 16px; }
+  .wf-nav-item { width: 50px; height: 10px; background: rgba(255,255,255,0.12); border-radius: 3px; }
+  .wf-nav-item.short { width: 30px; }
+  .wf-metabar { background: #2E2E2E; padding: 8px 16px; display: flex; align-items: center; gap: 10px; }
+  .wf-meta-tag { width: 24px; height: 18px; background: rgba(255,255,255,0.15); border-radius: 3px; }
+  .wf-meta-pill { height: 10px; background: rgba(255,255,255,0.1); border-radius: 3px; }
+  .wf-meta-status { margin-left: auto; width: 48px; height: 18px; background: #1D9E75; border-radius: 3px; opacity: 0.7; }
+  .wf-body { background: #FAFAF8; padding: 16px; }
+  .wf-cards-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+  .wf-card { border: 1.5px dashed #C8C6C0; border-radius: 8px; padding: 12px; min-height: 90px; display: flex; flex-direction: column; justify-content: space-between; background: white; }
+  .wf-card.active { border: 1.5px solid #1D9E75; background: #F0FAF6; }
+  .wf-card.done { background: #F5F4F0; border-style: solid; border-color: #D0CEC8; }
+  .wf-card-title { width: 70%; height: 10px; background: #D0CEC8; border-radius: 3px; margin-bottom: 6px; }
+  .wf-card-title.active { background: #1D9E75; opacity: 0.4; }
+  .wf-card-sub { width: 50%; height: 8px; background: #E0DED8; border-radius: 3px; }
+  .wf-card-status { display: flex; align-items: center; gap: 4px; margin-top: 10px; }
+  .wf-status-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .wf-status-label { height: 8px; border-radius: 3px; }
+  .wf-panel { border: 1.5px solid #D0CEC8; border-radius: 8px; overflow: hidden; background: white; }
+  .wf-panel-header { background: #F5F4F0; padding: 10px 14px; border-bottom: 1px solid #D0CEC8; display: flex; align-items: center; justify-content: space-between; }
+  .wf-panel-title { width: 120px; height: 10px; background: #C8C6C0; border-radius: 3px; }
+  .wf-panel-close { width: 14px; height: 14px; border: 1.5px solid #C8C6C0; border-radius: 50%; }
+  .wf-panel-body { display: grid; grid-template-columns: 1fr 220px; }
+  .wf-panel-left { padding: 14px; border-right: 1px solid #E0DED8; }
+  .wf-tabs { display: flex; gap: 14px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid #E0DED8; }
+  .wf-tab { height: 8px; border-radius: 3px; background: #E0DED8; }
+  .wf-tab.active { background: #1D9E75; opacity: 0.6; }
+  .wf-score-block { margin-bottom: 14px; }
+  .wf-score-lbl { width: 60px; height: 8px; background: #D0CEC8; border-radius: 3px; margin-bottom: 8px; }
+  .wf-score-track { height: 8px; background: #E8E6E0; border-radius: 100px; margin-bottom: 4px; position: relative; }
+  .wf-score-fill { height: 8px; border-radius: 100px; background: #1D9E75; }
+  .wf-score-marker { position: absolute; top: -3px; width: 2px; height: 14px; background: #9A9890; border-radius: 1px; }
+  .wf-score-val { display: inline-block; width: 80px; height: 20px; background: #F5F4F0; border: 1px solid #E0DED8; border-radius: 4px; margin-top: 2px; }
+  .wf-panel-right { padding: 14px; background: white; }
+  .wf-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+  .wf-btn { height: 28px; border-radius: 6px; border: 1.5px dashed #C8C6C0; }
+  .wf-btn.primary { background: #1D9E75; border: none; opacity: 0.7; }
+  .wf-notes-lbl { width: 40px; height: 8px; background: #D0CEC8; border-radius: 3px; margin-bottom: 8px; }
+  .wf-notes-box { height: 60px; border: 1.5px dashed #C8C6C0; border-radius: 6px; margin-bottom: 10px; background: #FAFAF8; }
+  .wf-legend { display: flex; gap: 16px; padding: 8px 14px; border-top: 1px solid #E0DED8; background: #F5F4F0; }
+  .wf-legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #9A9890; }
+  .wf-legend-dot { width: 7px; height: 7px; border-radius: 50%; }
+  .wf-annotation { font-size: 10px; color: #1D9E75; font-style: italic; margin-top: 4px; }
+</style>
+
+<div class="wf">
+  <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Wireframe mockup of Haven underwriting workbench</h2>
+
+  <div style="font-size:10px; color:#9A9890; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px; font-weight:500;">Haven Underwriting Platform · Analyst Workbench</div>
+
+  <div class="wf-browser">
+    <div class="wf-chrome">
+      <div class="wf-dot"></div>
+      <div class="wf-dot"></div>
+      <div class="wf-dot"></div>
+      <div class="wf-bar"></div>
+    </div>
+
+    <div class="wf-topbar">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div class="wf-logo"></div>
+        <div class="wf-nav-items">
+          <div class="wf-nav-item short"></div>
+          <div class="wf-nav-item"></div>
+          <div class="wf-nav-item short"></div>
+          <div class="wf-nav-item"></div>
+          <div class="wf-nav-item"></div>
+        </div>
+      </div>
+      <div style="width:80px; height:10px; background:rgba(255,255,255,0.1); border-radius:3px;"></div>
+    </div>
+
+    <div class="wf-metabar">
+      <div class="wf-meta-tag"></div>
+      <div class="wf-meta-pill" style="width:80px;"></div>
+      <div class="wf-meta-pill" style="width:60px;"></div>
+      <div class="wf-meta-pill" style="width:70px;"></div>
+      <div class="wf-meta-pill" style="width:50px;"></div>
+      <div class="wf-meta-pill" style="width:40px; background:rgba(29,158,117,0.3);"></div>
+      <div class="wf-meta-status"></div>
+    </div>
+
+    <div class="wf-body">
+      <div class="wf-cards-row">
+        <div class="wf-card done">
+          <div>
+            <div class="wf-card-title"></div>
+            <div class="wf-card-sub"></div>
+          </div>
+          <div class="wf-card-status">
+            <div class="wf-status-dot" style="background:#1D9E75;"></div>
+            <div class="wf-status-label" style="width:28px; background:#1D9E75; opacity:0.4;"></div>
+          </div>
+          <div class="wf-annotation">Done</div>
+        </div>
+        <div class="wf-card">
+          <div>
+            <div class="wf-card-title"></div>
+            <div class="wf-card-sub"></div>
+          </div>
+          <div class="wf-card-status">
+            <div class="wf-status-dot" style="background:#BA7517;"></div>
+            <div class="wf-status-label" style="width:48px; background:#BA7517; opacity:0.4;"></div>
+          </div>
+          <div class="wf-annotation">In progress</div>
+        </div>
+        <div class="wf-card active">
+          <div>
+            <div class="wf-card-title active"></div>
+            <div class="wf-card-sub"></div>
+          </div>
+          <div class="wf-card-status">
+            <div class="wf-status-dot" style="background:#185FA5;"></div>
+            <div class="wf-status-label" style="width:22px; background:#185FA5; opacity:0.4;"></div>
+          </div>
+          <div class="wf-annotation">Selected · open below</div>
+        </div>
+        <div class="wf-card">
+          <div>
+            <div class="wf-card-title"></div>
+            <div class="wf-card-sub"></div>
+          </div>
+          <div class="wf-card-status">
+            <div class="wf-status-dot" style="background:#D0CEC8;"></div>
+            <div class="wf-status-label" style="width:22px; background:#D0CEC8;"></div>
+          </div>
+          <div class="wf-annotation">New</div>
+        </div>
+      </div>
+
+      <div class="wf-panel">
+        <div class="wf-panel-header">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div class="wf-panel-title"></div>
+            <div style="width:70px; height:8px; background:#E0DED8; border-radius:3px;"></div>
+          </div>
+          <div class="wf-panel-close"></div>
+        </div>
+        <div class="wf-panel-body">
+          <div class="wf-panel-left">
+            <div class="wf-tabs">
+              <div class="wf-tab active" style="width:55px;"></div>
+              <div class="wf-tab" style="width:40px;"></div>
+              <div class="wf-tab" style="width:70px;"></div>
+              <div class="wf-tab" style="width:45px;"></div>
+            </div>
+            <div class="wf-score-block">
+              <div class="wf-score-lbl"></div>
+              <div class="wf-score-track">
+                <div class="wf-score-fill" style="width:45%;"></div>
+                <div class="wf-score-marker" style="left:70%;"></div>
+              </div>
+              <div class="wf-score-val"></div>
+              <div class="wf-annotation">ML score · RX data</div>
+            </div>
+            <div class="wf-score-block">
+              <div class="wf-score-lbl"></div>
+              <div class="wf-score-track">
+                <div class="wf-score-fill" style="width:66%; background:#0F6E56;"></div>
+                <div class="wf-score-marker" style="left:72%;"></div>
+              </div>
+              <div class="wf-score-val"></div>
+              <div class="wf-annotation">ML score · Fluidless</div>
+            </div>
+            <div class="wf-score-block">
+              <div class="wf-score-lbl"></div>
+              <div class="wf-score-track">
+                <div class="wf-score-fill" style="width:31%; background:#BA7517; opacity:0.7;"></div>
+                <div class="wf-score-marker" style="left:55%;"></div>
+              </div>
+              <div class="wf-score-val"></div>
+              <div class="wf-annotation">ML score · Mortality</div>
+            </div>
+          </div>
+          <div class="wf-panel-right">
+            <div class="wf-btn-grid">
+              <div class="wf-btn primary"></div>
+              <div class="wf-btn"></div>
+              <div class="wf-btn"></div>
+              <div class="wf-btn"></div>
+            </div>
+            <div class="wf-annotation" style="margin-bottom:10px;">Action buttons · underwriter CTAs</div>
+            <div class="wf-notes-lbl"></div>
+            <div class="wf-notes-box"></div>
+            <div class="wf-notes-lbl"></div>
+            <div class="wf-notes-box" style="height:40px;"></div>
+            <div class="wf-annotation">Notes + comments · multi-analyst</div>
+          </div>
+        </div>
+        <div class="wf-legend">
+          <div class="wf-legend-item"><div class="wf-legend-dot" style="background:#1D9E75;"></div>Done</div>
+          <div class="wf-legend-item"><div class="wf-legend-dot" style="background:#BA7517;"></div>In progress</div>
+          <div class="wf-legend-item"><div class="wf-legend-dot" style="background:#185FA5;"></div>Selected</div>
+          <div class="wf-legend-item"><div class="wf-legend-dot" style="background:#D0CEC8;"></div>New</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
